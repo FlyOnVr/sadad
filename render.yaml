@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: astre-market-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: TICKET_CATEGORY_ID
+        sync: false
+      - key: STAFF_ROLE_ID
+        sync: false
